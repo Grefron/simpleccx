@@ -173,10 +173,7 @@ class CalculiX:
         self.working_dir = os.path.join(os.getcwd(), working_dir)
 
     def get_template(self, fname, name):
-        # with open(fname, "r") as f:
-        #     template_str = f.read()
-        # template_str = importlib.resources.read_text("simpleccx.templates", fname)
-        template_str = _template_text[fname]
+        template_str = importlib.resources.read_text("simpleccx.templates", fname)
         self.template_text[name] = template_str
         return jinja2.Environment().from_string(template_str)
 
