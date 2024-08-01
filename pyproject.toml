@@ -1,14 +1,20 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mypkg = ["*.fbd.j2"]
+
 [project]
-name = "beam_frequency"
-version = "0.0.1"
+name = "simpleccx"
+version = "0.0.5"
 authors = [
   { name="Ronald Grefhorst", email="ronald@rgde.be" },
 ]
-description = "A package to determine the harmonic frequencies of a continuous beam"
+description = "A simple package to perform FE analysis of extruded sections using the CalculiX solver"
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
@@ -17,10 +23,11 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "numpy",
-    "scipy"
+    "jinja2",
+    "pandas",
+    "pillow"
 ]
 
 [project.urls]
-Homepage = "https://github.com/Grefron/pylaminate"
-Issues = "https://github.com/Grefron/pylaminate/issues"
+Homepage = "https://github.com/Grefron/simpleccx"
+Issues = "https://github.com/Grefron/simpleccx/issues"

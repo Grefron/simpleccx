@@ -1,3 +1,3 @@
-# beam_frequency
+# simpleccx
 
-A package to determine the harmonic frequencies of a continuous beam
+A simple package to perform FE analysis using the CalculiX solver

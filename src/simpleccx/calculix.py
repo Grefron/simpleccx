@@ -1,13 +1,16 @@
 import os
 import time
 import jinja2
+import importlib.resources
 
-import frdreader
+from . import frdreader
 import PIL.Image
 
 CGX = r"C:\Apps\Calculix\cgx.exe"
 CCX = r"C:\Apps\Calculix\ccx_dynamic.exe"
+
 mesh_size = 50
+
 
 class Point:
     __index__ = 0
@@ -170,8 +173,10 @@ class CalculiX:
         self.working_dir = os.path.join(os.getcwd(), working_dir)
 
     def get_template(self, fname, name):
-        with open(fname, "r") as f:
-            template_str = f.read()
+        # with open(fname, "r") as f:
+        #     template_str = f.read()
+        # template_str = importlib.resources.read_text("simpleccx.templates", fname)
+        template_str = _template_text[fname]
         self.template_text[name] = template_str
         return jinja2.Environment().from_string(template_str)
 
